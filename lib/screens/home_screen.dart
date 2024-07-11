@@ -63,7 +63,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   color: Colors.yellow,
                 ),
                 child: CountDownText(
-                  due: DateTime.utc(2024, 7, 17, 8, 0, 0),
+                  due: DateTime.utc(2024, 7, 29, 8, 0, 0),
                   finishedText: "Match Started",
                   showLabel: false,
                   longDateName: true,
@@ -345,8 +345,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) =>
-                                 FixturesAndResultsScreen()),
+                            builder: (context) => FixturesAndResultsScreen()),
                       );
                     },
                     child: const Row(

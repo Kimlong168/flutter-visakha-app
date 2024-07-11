@@ -25,7 +25,8 @@ class NewDetailScreen extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          Image.network(image),
+          Image.network(image,
+              fit: BoxFit.cover, height: 200, width: double.infinity),
           const SizedBox(height: 8),
           Padding(
             padding: const EdgeInsets.all(8.0),

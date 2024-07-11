@@ -12,7 +12,10 @@ class _StoreScreenState extends State<StoreScreen> {
   Widget build(BuildContext context) {
     return Container(
       child: ListView(
-        children: [_buildPageView(), _buildTabs()],
+        children: [
+          _buildPageView(),
+          _buildTabs(),
+        ],
       ),
     );
   }
@@ -22,7 +25,15 @@ class _StoreScreenState extends State<StoreScreen> {
         decoration: BoxDecoration(
       image: DecorationImage(
         image: NetworkImage(
-            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQC8ec8tpp94yWJL3qBWHkZumx0y2GD4WUYqw&s'),
+            'https://tse3.mm.bing.net/th?id=OIP.cnR2OvPTcmK3Gx-CzJB-0gHaDx&pid=Api&P=0&h=220'),
+        fit: BoxFit.cover,
+      ),
+    )),
+    Container(
+        decoration: BoxDecoration(
+      image: DecorationImage(
+        image: NetworkImage(
+            'https://tse3.mm.bing.net/th?id=OIP.9rXIgvxITZ121p6-pr8vDQHaE8&pid=Api&P=0&h=220'),
         fit: BoxFit.cover,
       ),
     )),
@@ -31,14 +42,6 @@ class _StoreScreenState extends State<StoreScreen> {
       image: DecorationImage(
         image: NetworkImage(
             'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQC8ec8tpp94yWJL3qBWHkZumx0y2GD4WUYqw&s'),
-        fit: BoxFit.cover,
-      ),
-    )),
-    Container(
-        decoration: BoxDecoration(
-      image: DecorationImage(
-        image: NetworkImage(
-            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTp1xFSMg3nywvznCxsDd_J7Lm_TxnW0H4v0w&s'),
         fit: BoxFit.cover,
       ),
     )),
@@ -106,17 +109,18 @@ class _StoreScreenState extends State<StoreScreen> {
             const SizedBox(
               height: 10,
             ),
-            SizedBox(
-              height: 700,
+            Container(
+              color: const Color.fromARGB(255, 14, 46, 110),
+              height: 900,
               child: TabBarView(
                 children: [
-                  _buildAllTap(),
+                  _buildAllTab(),
                   _buildAccessoriesTap(),
                   _buildForwardSportwearTap(),
                   _buildKitTap(),
                 ],
               ),
-            ),
+            )
           ],
         ),
       ),
@@ -139,7 +143,142 @@ class _StoreScreenState extends State<StoreScreen> {
               borderRadius: BorderRadius.circular(10),
               image: DecorationImage(
                 image: NetworkImage(
-                    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQC8ec8tpp94yWJL3qBWHkZumx0y2GD4WUYqw&s'),
+                    'https://tse3.mm.bing.net/th?id=OIP.fpPKtbxa1kd0p-0wlQVD2wHaHa&pid=Api&P=0&h=220'),
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.only(left: 8, right: 8),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text(
+                    'T-SHIRT',
+                    textAlign: TextAlign.start,
+                    style: TextStyle(color: Colors.yellow),
+                  ),
+                  const Text(
+                    'USD 180',
+                    textAlign: TextAlign.start,
+                    style: TextStyle(color: Colors.yellow),
+                  ),
+                ],
+              ),
+            ),
+          )
+        ],
+      ),
+    ),
+    Container(
+      decoration: BoxDecoration(
+        color: Color.fromARGB(255, 5, 24, 62),
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Container(
+            height: 180,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              image: DecorationImage(
+                image: NetworkImage(
+                    'https://tse2.mm.bing.net/th?id=OIP.gPLcmwyyJgN4tFDyC6llJQHaI1&pid=Api&P=0&h=220'),
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+          Expanded(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 8, right: 8),
+                  child: const Text(
+                    'T-SHIRT',
+                    textAlign: TextAlign.start,
+                    style: TextStyle(color: Colors.yellow),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 8, right: 8),
+                  child: const Text(
+                    'USD 180',
+                    textAlign: TextAlign.start,
+                    style: TextStyle(color: Colors.yellow),
+                  ),
+                ),
+              ],
+            ),
+          )
+        ],
+      ),
+    ),
+    Container(
+      decoration: BoxDecoration(
+        color: Color.fromARGB(255, 5, 24, 62),
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Container(
+            height: 180,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              image: DecorationImage(
+                image: NetworkImage(
+                    'https://tse3.mm.bing.net/th?id=OIP.hf4EVwYuZhc-XkL1DYPcigHaHa&pid=Api&P=0&h=220'),
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+          Expanded(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 8, right: 8),
+                  child: const Text(
+                    'T-SHIRT',
+                    textAlign: TextAlign.start,
+                    style: TextStyle(color: Colors.yellow),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 8, right: 8),
+                  child: const Text(
+                    'USD 180',
+                    textAlign: TextAlign.start,
+                    style: TextStyle(color: Colors.yellow),
+                  ),
+                ),
+              ],
+            ),
+          )
+        ],
+      ),
+    ),
+    Container(
+      decoration: BoxDecoration(
+        color: Color.fromARGB(255, 5, 24, 62),
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Container(
+            height: 180,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              image: DecorationImage(
+                image: NetworkImage(
+                    'https://tse1.mm.bing.net/th?id=OIP.njKaObvMKZhJZzXIL7N1-wHaHa&pid=Api&P=0&h=220'),
                 fit: BoxFit.cover,
               ),
             ),
@@ -231,53 +370,7 @@ class _StoreScreenState extends State<StoreScreen> {
               borderRadius: BorderRadius.circular(10),
               image: DecorationImage(
                 image: NetworkImage(
-                    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQC8ec8tpp94yWJL3qBWHkZumx0y2GD4WUYqw&s'),
-                fit: BoxFit.cover,
-              ),
-            ),
-          ),
-          Expanded(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 8, right: 8),
-                  child: const Text(
-                    'T-SHIRT',
-                    textAlign: TextAlign.start,
-                    style: TextStyle(color: Colors.yellow),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 8, right: 8),
-                  child: const Text(
-                    'USD 180',
-                    textAlign: TextAlign.start,
-                    style: TextStyle(color: Colors.yellow),
-                  ),
-                ),
-              ],
-            ),
-          )
-        ],
-      ),
-    ),
-    Container(
-      decoration: BoxDecoration(
-        color: Color.fromARGB(255, 5, 24, 62),
-        borderRadius: BorderRadius.circular(10),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Container(
-            height: 180,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              image: DecorationImage(
-                image: NetworkImage(
-                    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQC8ec8tpp94yWJL3qBWHkZumx0y2GD4WUYqw&s'),
+                    'https://tse3.mm.bing.net/th?id=OIP.wqMU1w06vtJC6j1RJQPC9wAAAA&pid=Api&P=0&h=220'),
                 fit: BoxFit.cover,
               ),
             ),
@@ -319,7 +412,7 @@ class _StoreScreenState extends State<StoreScreen> {
     );
   }
 
-  Widget _buildAllTap() {
+  Widget _buildAllTab() {
     return _buildGridViewExtent();
   }
 

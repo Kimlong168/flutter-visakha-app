@@ -28,14 +28,14 @@ class CustomDrawer extends StatelessWidget implements PreferredSizeWidget {
                     shape: BoxShape.circle,
                     image: DecorationImage(
                       image: NetworkImage(
-                          'https://kimlongchann.online/static/media/kimlong.9d773125bee791169493.jpg'),
+                          'https://tse3.mm.bing.net/th?id=OIP.o_Mg-ObwGNHPKfmPk2be6QHaEK&pid=Api&P=0&h=220'),
                       fit: BoxFit.cover,
                     ),
                   ),
                 ),
                 const SizedBox(height: 10),
                 const Text(
-                  'KIMLONG CHANN',
+                  'Lionel Messi',
                   style: TextStyle(
                       color: Color.fromARGB(255, 226, 168, 9),
                       fontWeight: FontWeight.bold),

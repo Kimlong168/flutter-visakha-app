@@ -4,6 +4,8 @@ import '../widgets/custome/custom_drawer.dart';
 import '../screens/home_screen.dart';
 import '../screens/card_screen.dart';
 import '../screens/store_screen.dart';
+import '../screens/video_screen.dart';
+import '../screens/about_screen.dart';
 
 class Layout extends StatefulWidget {
   int pageIndex = 0;
@@ -39,7 +41,7 @@ class _LayoutState extends State<Layout> {
       ),
       bottomNavigationBar: _buildBottomNavBar(),
       floatingActionButton:
-          _pageIndex == 3 ? const SizedBox() : _buildFloatingActionButton(),
+          _pageIndex == 3 || _pageIndex == 4 ? const SizedBox() : _buildFloatingActionButton(),
     );
   }
 
@@ -48,11 +50,10 @@ class _LayoutState extends State<Layout> {
       index: _pageIndex,
       children: [
         HomeScreen(),
-        Container(color: Colors.orange),
+        VideoScreen(),
         StoreScreen(),
         CardScreen(),
-        Container(color: Colors.pink),
-        Container(color: Colors.yellow),
+        AboutScreen(),
       ],
     );
   }

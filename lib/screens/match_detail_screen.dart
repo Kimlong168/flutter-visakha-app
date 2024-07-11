@@ -85,7 +85,7 @@ class _MatchDetailScreenState extends State<MatchDetailScreen> {
                   color: Colors.yellow,
                 ),
                 child: CountDownText(
-                  due: DateTime.utc(2024, 7, 16, 8, 0, 0),
+                  due: DateTime.utc(2024, 7, 29, 8, 0, 0),
                   finishedText: "Match Started",
                   showLabel: false,
                   longDateName: true,

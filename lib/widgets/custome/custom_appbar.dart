@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../screens/notification_screen.dart';
+import '../../screens/cart_screen.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
@@ -44,7 +45,10 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           ),
           onPressed: () {
             // Add your notification functionality here
-            print('Notifications button pressed');
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const CardScreen()),
+            );
           },
         ),
       ],
