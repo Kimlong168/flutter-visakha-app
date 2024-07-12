@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import '../state_logic/change_theme_logic.dart';
+import 'package:provider/provider.dart';
 
 class NewDetailScreen extends StatelessWidget {
   String title = 'title';
@@ -12,9 +14,12 @@ class NewDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    int themeIndex = context.watch<ChangeThemeLogic>().themeIndex;
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 14, 46, 110),
-      appBar: _buildAppbar(context),
+      backgroundColor: themeIndex == 1
+          ? const Color.fromARGB(255, 14, 46, 110)
+          : Colors.black,
+      appBar: _buildAppbar(context, themeIndex),
       body: _buildBody(),
     );
   }
@@ -26,7 +31,7 @@ class NewDetailScreen extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Image.network(image,
-              fit: BoxFit.cover, height: 200, width: double.infinity),
+              fit: BoxFit.cover, height: 250, width: double.infinity),
           const SizedBox(height: 8),
           Padding(
             padding: const EdgeInsets.all(8.0),
@@ -55,7 +60,7 @@ class NewDetailScreen extends StatelessWidget {
     ]);
   }
 
-  AppBar _buildAppbar(context) {
+  AppBar _buildAppbar(context, themeIndex) {
     return AppBar(
       leading: IconButton(
         icon: const Icon(Icons.arrow_back_ios_new_outlined),
@@ -75,7 +80,9 @@ class NewDetailScreen extends StatelessWidget {
           style: const TextStyle(
               color: Colors.yellow, fontWeight: FontWeight.bold)),
       flexibleSpace: Container(
-        color: const Color.fromARGB(255, 14, 46, 110),
+        color: themeIndex == 1
+            ? const Color.fromARGB(255, 14, 46, 110)
+            : Colors.black,
       ),
     );
   }

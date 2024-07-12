@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import '../state_logic/change_theme_logic.dart';
 
 class CardScreen extends StatelessWidget {
   const CardScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    int themeIndex = context.watch<ChangeThemeLogic>().themeIndex;
     return Container(
       alignment: Alignment.topCenter,
-      color: const Color.fromARGB(255, 14, 46, 110),
+      color: themeIndex == 1
+          ? const Color.fromARGB(255, 14, 46, 110)
+          : Colors.black,
       height: double.infinity,
       padding: const EdgeInsets.all(12),
       child: ListView(children: [
@@ -19,7 +24,9 @@ class CardScreen extends StatelessWidget {
               height: 220,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
-                color: const Color.fromARGB(255, 14, 46, 110),
+                color: themeIndex == 1
+                    ? const Color.fromARGB(255, 14, 46, 110)
+                    : Colors.black,
                 boxShadow: const [
                   BoxShadow(
                     color: Color.fromARGB(255, 14, 46, 110),

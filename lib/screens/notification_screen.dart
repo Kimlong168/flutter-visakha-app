@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import '../state_logic/change_theme_logic.dart';
 
 class NotificationScreen extends StatelessWidget {
   const NotificationScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    int themeIndex = context.watch<ChangeThemeLogic>().themeIndex;
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 14, 46, 110),
-      appBar: _buildAppbar(context),
+      backgroundColor: themeIndex == 1
+          ? const Color.fromARGB(255, 14, 46, 110)
+          : Colors.black,
+      appBar: _buildAppbar(context, themeIndex),
       body: _buildBody(),
     );
   }
@@ -82,7 +87,7 @@ class NotificationScreen extends StatelessWidget {
     );
   }
 
-  AppBar _buildAppbar(context) {
+  AppBar _buildAppbar(context, themeIndex) {
     return AppBar(
       leading: IconButton(
         icon: const Icon(Icons.arrow_back_ios_new_outlined),
@@ -95,7 +100,9 @@ class NotificationScreen extends StatelessWidget {
           style: TextStyle(color: Colors.yellow, fontWeight: FontWeight.bold)),
       centerTitle: true,
       flexibleSpace: Container(
-        color: const Color.fromARGB(255, 14, 46, 110),
+        color: themeIndex == 1
+            ? const Color.fromARGB(255, 14, 46, 110)
+            : Colors.black,
       ),
     );
   }

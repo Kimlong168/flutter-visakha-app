@@ -1,14 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import '../../screens/fixtures_and_results_screen.dart';
+import '../../layouts/layout.dart';
+import '../../state_logic/change_theme_logic.dart';
 
 class CustomDrawer extends StatelessWidget implements PreferredSizeWidget {
+  // final int themeIndex;
+  // CustomDrawer(this.themeIndex);
   @override
   Size get preferredSize => Size.fromHeight(kToolbarHeight);
   @override
   Widget build(BuildContext context) {
+    int themeIndex = context.watch<ChangeThemeLogic>().themeIndex;
     return Drawer(
       child: Container(
         padding: const EdgeInsets.only(left: 15, right: 15, top: 0, bottom: 15),
-        color: const Color.fromARGB(255, 14, 46, 110),
+        color: themeIndex == 1
+            ? const Color.fromARGB(255, 14, 46, 110)
+            : Colors.black,
         // decoration: BoxDecoration(
         //   image: DecorationImage(
         //     image: NetworkImage(
@@ -47,12 +56,21 @@ class CustomDrawer extends StatelessWidget implements PreferredSizeWidget {
               ],
             )),
             const SizedBox(height: 10),
-            const Text(
-              "MATCH",
-              style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 14,
-                  fontWeight: FontWeight.w400),
+            InkWell(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => FixturesAndResultsScreen()),
+                );
+              },
+              child: const Text(
+                "MATCH",
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 14,
+                    fontWeight: FontWeight.w400),
+              ),
             ),
             const SizedBox(height: 20),
             const Text(
@@ -79,12 +97,20 @@ class CustomDrawer extends StatelessWidget implements PreferredSizeWidget {
                   fontWeight: FontWeight.w400),
             ),
             const SizedBox(height: 20),
-            const Text(
-              "ABOUT US",
-              style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 14,
-                  fontWeight: FontWeight.w400),
+            InkWell(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Layout(pageIndex: 4)),
+                );
+              },
+              child: const Text(
+                "ABOUT US",
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 14,
+                    fontWeight: FontWeight.w400),
+              ),
             ),
             const SizedBox(height: 20),
             const Text(
@@ -101,6 +127,39 @@ class CustomDrawer extends StatelessWidget implements PreferredSizeWidget {
                   color: Colors.white,
                   fontSize: 14,
                   fontWeight: FontWeight.w400),
+            ),
+            const SizedBox(height: 20),
+            InkWell(
+              onTap: () {
+                if (themeIndex == 1) {
+                  context.read<ChangeThemeLogic>().changeToDark();
+                } else if (themeIndex == 2) {
+                  context.read<ChangeThemeLogic>().changeToLight();
+                } else {
+                  context.read<ChangeThemeLogic>().changeToLight();
+                }
+              },
+              child: Row(
+                children: [
+                  Text(
+                    themeIndex == 1 ? "DARK MODE" : "LIGHT MODE",
+                    style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 14,
+                        fontWeight: FontWeight.w400),
+                  ),
+                  const SizedBox(width: 10),
+                  themeIndex == 1
+                      ? const Icon(
+                          Icons.nightlight_round,
+                          color: Colors.white,
+                        )
+                      : const Icon(
+                          Icons.wb_sunny,
+                          color: Colors.white,
+                        )
+                ],
+              ),
             ),
             const SizedBox(height: 30),
             Row(

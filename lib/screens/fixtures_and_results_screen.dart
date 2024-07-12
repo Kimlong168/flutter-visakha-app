@@ -1,19 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'match_detail_screen.dart';
+import '../state_logic/change_theme_logic.dart';
 
 class FixturesAndResultsScreen extends StatelessWidget {
   FixturesAndResultsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    int themeIndex = context.watch<ChangeThemeLogic>().themeIndex;
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 14, 46, 110),
+      backgroundColor: themeIndex == 1
+          ? const Color.fromARGB(255, 14, 46, 110)
+          : Colors.black,
       appBar: _buildAppbar(context),
       body: _buildBody(),
     );
   }
 
   AppBar _buildAppbar(BuildContext context) {
+    int themeIndex = context.watch<ChangeThemeLogic>().themeIndex;
     return AppBar(
       leading: IconButton(
         icon:
@@ -28,7 +34,9 @@ class FixturesAndResultsScreen extends StatelessWidget {
         style: TextStyle(color: Colors.yellow, fontWeight: FontWeight.bold),
       ),
       flexibleSpace: Container(
-        color: const Color.fromARGB(255, 14, 46, 110),
+        color: themeIndex == 1
+            ? const Color.fromARGB(255, 14, 46, 110)
+            : Colors.black,
       ),
     );
   }

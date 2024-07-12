@@ -7,6 +7,8 @@ import 'match_detail_screen.dart';
 import '../layouts/layout.dart';
 import 'offer_and_promotion_screen.dart';
 import 'fixtures_and_results_screen.dart';
+import '../state_logic/change_theme_logic.dart';
+import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -18,9 +20,12 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
+    int themeIndex = context.watch<ChangeThemeLogic>().themeIndex;
     return Container(
       padding: const EdgeInsets.only(bottom: 1),
-      color: const Color.fromARGB(255, 14, 46, 110),
+      color: themeIndex == 1
+          ? const Color.fromARGB(255, 14, 46, 110)
+          : Colors.black,
       child: ListView(
         physics: const BouncingScrollPhysics(),
         children: [
@@ -211,7 +216,7 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Container(
         color: Colors.yellow,
         padding: const EdgeInsets.all(15),
-        margin: const EdgeInsets.only(top: 15),
+        margin: const EdgeInsets.only(top: 15, bottom: 15),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [

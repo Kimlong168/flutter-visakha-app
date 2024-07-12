@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../../screens/notification_screen.dart';
 import '../../screens/cart_screen.dart';
+import '../../state_logic/change_theme_logic.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Size get preferredSize => Size.fromHeight(kToolbarHeight);
   @override
   Widget build(BuildContext context) {
+    int themeIndex = context.watch<ChangeThemeLogic>().themeIndex;
     return AppBar(
       leading: IconButton(
         onPressed: () {
@@ -22,7 +25,9 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           'https://cpl.sgp1.cdn.digitaloceanspaces.com/logo/club/extra_small/1691333383.png',
           height: 60,
           fit: BoxFit.cover),
-      backgroundColor: const Color.fromARGB(255, 14, 46, 110),
+      backgroundColor: themeIndex == 1
+          ? const Color.fromARGB(255, 14, 46, 110)
+          : Colors.black,
       actions: [
         IconButton(
           icon: const Icon(
@@ -53,8 +58,10 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         ),
       ],
       flexibleSpace: Container(
-        decoration: const BoxDecoration(
-          color: Color.fromARGB(255, 14, 46, 110),
+        decoration: BoxDecoration(
+          color: themeIndex == 1
+              ? const Color.fromARGB(255, 14, 46, 110)
+              : Colors.black,
         ),
       ),
     );

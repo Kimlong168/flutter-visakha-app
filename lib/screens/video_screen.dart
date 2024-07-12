@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
 import 'news_detail_screen.dart';
+import 'package:provider/provider.dart';
+import '../state_logic/change_theme_logic.dart';
 
 class VideoScreen extends StatelessWidget {
   const VideoScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    int themeIndex = context.watch<ChangeThemeLogic>().themeIndex;
     return Container(
-      color: const Color.fromARGB(255, 14, 46, 110),
+      color: themeIndex == 1
+          ? const Color.fromARGB(255, 14, 46, 110)
+          : Colors.black,
       child: ListView(
         children: [
           _buildHeroVideo(context),
@@ -31,12 +36,12 @@ class VideoScreen extends StatelessWidget {
                     description:
                         "Visakha Football Club (Khmer: ក្លឹបបាល់ទាត់វិសាខា, Klœ̆b Băltoăt Vĭsakha) is an association football club based in Phnom Penh.",
                     image:
-                        "https://tse2.mm.bing.net/th?id=OIP.2H2Y93_9SuoQK1tzK9hTgAHaE8&pid=Api&P=0&h=220",
+                        "https://tse2.mm.bing.net/th?id=OIP.S-rDp8ULYa6wEVrKANRbsQHaE8&pid=Api&P=0&h=220",
                   )),
         );
       },
       child: Container(
-          padding: EdgeInsets.all(4),
+          padding: const EdgeInsets.all(8),
           width: double.maxFinite,
           height: 250,
           child: Stack(
@@ -153,7 +158,7 @@ class VideoScreen extends StatelessWidget {
           children: [
             title != ""
                 ? Padding(
-                    padding: const EdgeInsets.all(12.0),
+                    padding: const EdgeInsets.all(8.0),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -188,13 +193,13 @@ class VideoScreen extends StatelessWidget {
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: [
-                  const SizedBox(width: 12),
+                  const SizedBox(width: 8),
                   _buildVideoCard(context),
                   const SizedBox(width: 10),
                   _buildVideoCard(context),
                   const SizedBox(width: 10),
                   _buildVideoCard(context),
-                  const SizedBox(width: 12),
+                  const SizedBox(width: 8),
                 ],
               ),
             ),

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:date_count_down/date_count_down.dart';
+import '../state_logic/change_theme_logic.dart';
+import 'package:provider/provider.dart';
 
 class MatchDetailScreen extends StatefulWidget {
   const MatchDetailScreen({super.key});
@@ -11,14 +13,18 @@ class MatchDetailScreen extends StatefulWidget {
 class _MatchDetailScreenState extends State<MatchDetailScreen> {
   @override
   Widget build(BuildContext context) {
+    int themeIndex = context.watch<ChangeThemeLogic>().themeIndex;
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 14, 46, 110),
+      backgroundColor: themeIndex == 1
+          ? const Color.fromARGB(255, 14, 46, 110)
+          : Colors.black,
       appBar: _buildAppbar(context),
       body: _buildBody(),
     );
   }
 
   AppBar _buildAppbar(BuildContext context) {
+    int themeIndex = context.watch<ChangeThemeLogic>().themeIndex;
     return AppBar(
       leading: IconButton(
         icon:
@@ -33,9 +39,13 @@ class _MatchDetailScreenState extends State<MatchDetailScreen> {
         style: TextStyle(
             color: Colors.yellow, fontSize: 16, fontWeight: FontWeight.bold),
       ),
-      backgroundColor: const Color.fromARGB(255, 14, 46, 110),
+      backgroundColor: themeIndex == 1
+          ? const Color.fromARGB(255, 14, 46, 110)
+          : Colors.black,
       flexibleSpace: Container(
-        color: const Color.fromARGB(255, 14, 46, 110),
+        color: themeIndex == 1
+            ? const Color.fromARGB(255, 14, 46, 110)
+            : Colors.black,
       ),
     );
   }
